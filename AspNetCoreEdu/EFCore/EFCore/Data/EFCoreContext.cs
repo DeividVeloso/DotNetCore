@@ -17,5 +17,24 @@ namespace EFCore.Data
         }
 
         public DbSet<Evento> Eventos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Construindo minha tabela, usando minha Model
+            modelBuilder.Entity<Evento>()
+                .Property(x => x.Id)
+                .HasColumnName("EventoId");
+
+            modelBuilder.Entity<Evento>()
+                .HasKey(x => x.Id);
+
+            modelBuilder.Entity<Evento>()
+                .Property(x => x.Descricao)
+                .HasColumnType("varchar(500)")
+                .HasMaxLength(500);
+                
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

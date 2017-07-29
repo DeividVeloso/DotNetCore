@@ -8,9 +8,10 @@ using EFCore.Data;
 namespace EFCore.Migrations
 {
     [DbContext(typeof(EFCoreContext))]
-    partial class EFCoreContextModelSnapshot : ModelSnapshot
+    [Migration("20170729160627_Update1")]
+    partial class Update1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -25,7 +26,6 @@ namespace EFCore.Migrations
                     b.Property<DateTime>("Data");
 
                     b.Property<string>("Descricao")
-                        .HasColumnType("varchar(500)")
                         .HasMaxLength(500);
 
                     b.Property<bool>("Gratuito");
