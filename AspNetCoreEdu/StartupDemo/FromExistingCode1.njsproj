@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectGuid>{f878536a-2505-45fe-b1b5-b1d840bfc7ad}</ProjectGuid>
+        <ProjectHome />
+        <ProjectView>ShowAllFiles</ProjectView>
+        <StartupFile />
+        <WorkingDirectory>.</WorkingDirectory>
+        <OutputPath>.</OutputPath>
+        <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+    <ItemGroup>
+        <Content Include="StartupDemo\ScaffoldingReadMe.txt" />
+        <Content Include="StartupDemo\appsettings.Development.json" />
+        <Content Include="StartupDemo\appsettings.json" />
+        <Content Include="StartupDemo\bower.json" />
+        <Content Include="StartupDemo\bundleconfig.json" />
+        <Content Include="StartupDemo\obj\project.assets.json" />
+        <Content Include="StartupDemo\Properties\launchSettings.json" />
+        <Content Include="StartupDemo\wwwroot\favicon.ico" />
+        <Content Include="StartupDemo\bin\Debug\netcoreapp1.1\StartupDemo.deps.json" />
+        <Content Include="StartupDemo\bin\Debug\netcoreapp1.1\StartupDemo.runtimeconfig.dev.json" />
+        <Content Include="StartupDemo\bin\Debug\netcoreapp1.1\StartupDemo.runtimeconfig.json" />
+        <Content Include="StartupDemo\obj\Debug\netcoreapp1.1\StartupDemo.csproj.FileListAbsolute.txt" />
+        <Content Include="StartupDemo\wwwroot\css\site.css" />
+        <Content Include="StartupDemo\wwwroot\css\site.min.css" />
+        <Content Include="StartupDemo\wwwroot\images\banner1.svg" />
+        <Content Include="StartupDemo\wwwroot\images\banner2.svg" />
+        <Content Include="StartupDemo\wwwroot\images\banner3.svg" />
+        <Content Include="StartupDemo\wwwroot\images\banner4.svg" />
+        <Compile Include="StartupDemo\wwwroot\js\site.js" />
+        <Compile Include="StartupDemo\wwwroot\js\site.min.js" />
+        <Content Include="StartupDemo\wwwroot\lib\bootstrap\.bower.json" />
+        <Content Include="StartupDemo\wwwroot\lib\jquery\LICENSE.txt" />
+        <Content Include="StartupDemo\wwwroot\lib\jquery\.bower.json" />
+        <Content Include="StartupDemo\wwwroot\lib\jquery-validation\.bower.json" />
+        <Content Include="StartupDemo\wwwroot\lib\jquery-validation\LICENSE.md" />
+        <Content Include="StartupDemo\wwwroot\lib\jquery-validation-unobtrusive\.bower.json" />
+        <Compile Include="StartupDemo\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+        <Compile Include="StartupDemo\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+        <Content Include="StartupDemo\wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css" />
+        <Content Include="StartupDemo\wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css" />
+        <Content Include="StartupDemo\wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+        <Content Include="StartupDemo\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+        <Content Include="StartupDemo\wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+        <Compile Include="StartupDemo\wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+        <Compile Include="StartupDemo\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+        <Compile Include="StartupDemo\wwwroot\lib\bootstrap\dist\js\npm.js" />
+        <Compile Include="StartupDemo\wwwroot\lib\jquery\dist\jquery.js" />
+        <Compile Include="StartupDemo\wwwroot\lib\jquery\dist\jquery.min.js" />
+        <Compile Include="StartupDemo\wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+        <Compile Include="StartupDemo\wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+        <Compile Include="StartupDemo\wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+        <Compile Include="StartupDemo\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="FromExistingCode1" />
+        <Folder Include="StartupDemo" />
+        <Folder Include="StartupDemo\bin" />
+        <Folder Include="StartupDemo\bin\Debug" />
+        <Folder Include="StartupDemo\bin\Debug\netcoreapp1.1" />
+        <Folder Include="StartupDemo\Controllers" />
+        <Folder Include="StartupDemo\obj" />
+        <Folder Include="StartupDemo\obj\Debug" />
+        <Folder Include="StartupDemo\obj\Debug\netcoreapp1.1" />
+        <Folder Include="StartupDemo\Properties" />
+        <Folder Include="StartupDemo\Views" />
+        <Folder Include="StartupDemo\Views\Home" />
+        <Folder Include="StartupDemo\Views\Shared" />
+        <Folder Include="StartupDemo\Views\Teste" />
+        <Folder Include="StartupDemo\wwwroot" />
+        <Folder Include="StartupDemo\wwwroot\css" />
+        <Folder Include="StartupDemo\wwwroot\images" />
+        <Folder Include="StartupDemo\wwwroot\js" />
+        <Folder Include="StartupDemo\wwwroot\lib" />
+        <Folder Include="StartupDemo\wwwroot\lib\bootstrap" />
+        <Folder Include="StartupDemo\wwwroot\lib\bootstrap\dist" />
+        <Folder Include="StartupDemo\wwwroot\lib\bootstrap\dist\css" />
+        <Folder Include="StartupDemo\wwwroot\lib\bootstrap\dist\fonts" />
+        <Folder Include="StartupDemo\wwwroot\lib\bootstrap\dist\js" />
+        <Folder Include="StartupDemo\wwwroot\lib\jquery" />
+        <Folder Include="StartupDemo\wwwroot\lib\jquery\dist" />
+        <Folder Include="StartupDemo\wwwroot\lib\jquery-validation" />
+        <Folder Include="StartupDemo\wwwroot\lib\jquery-validation\dist" />
+        <Folder Include="StartupDemo\wwwroot\lib\jquery-validation-unobtrusive" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
+    <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+    <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+    <ProjectExtensions>
+        <VisualStudio>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+            <WebProjectProperties>
+              <UseIIS>False</UseIIS>
+              <AutoAssignPort>True</AutoAssignPort>
+              <DevelopmentServerPort>0</DevelopmentServerPort>
+              <DevelopmentServerVPath>/</DevelopmentServerVPath>
+              <IISUrl>http://localhost:48022/</IISUrl>
+              <NTLMAuthentication>False</NTLMAuthentication>
+              <UseCustomServer>True</UseCustomServer>
+              <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+              <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+            </WebProjectProperties>
+          </FlavorProperties>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+            <WebProjectProperties>
+              <StartPageUrl>
+              </StartPageUrl>
+              <StartAction>CurrentPage</StartAction>
+              <AspNetDebugging>True</AspNetDebugging>
+              <SilverlightDebugging>False</SilverlightDebugging>
+              <NativeDebugging>False</NativeDebugging>
+              <SQLDebugging>False</SQLDebugging>
+              <ExternalProgram>
+              </ExternalProgram>
+              <StartExternalURL>
+              </StartExternalURL>
+              <StartCmdLineArguments>
+              </StartCmdLineArguments>
+              <StartWorkingDirectory>
+              </StartWorkingDirectory>
+              <EnableENC>False</EnableENC>
+              <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+            </WebProjectProperties>
+          </FlavorProperties>
+        </VisualStudio>
+    </ProjectExtensions>
+</Project>
