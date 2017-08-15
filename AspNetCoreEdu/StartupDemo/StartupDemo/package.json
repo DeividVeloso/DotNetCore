@@ -1,0 +1,8 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "version": "1.0.0",
+  "devDependencies": {
+    "react": "15.6.1"
+  }
+}
