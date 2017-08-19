@@ -3,8 +3,39 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{D5624B54-DB44-4971-85CB-926446C4B51B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{CDA09761-F265-4493-A49E-3CD8405CE344}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{EFA0491B-9750-4125-819B-6C5A10A62449}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Domain", "4 - Domain", "{FFC70F0F-4F27-42F2-A103-839A4EA24857}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra", "5 - Infra", "{5D072FD4-552C-4831-BCF6-EEFA81930FEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1 - Data", "5.1 - Data", "{0913F50D-9E30-4508-BFBA-4430202965D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 - CrossCutting", "5.2 - CrossCutting", "{E5B59DEA-B7F0-439C-8977-C1F712B8D2AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventos.IO.Domain", "src\Eventos.IO.Domain\Eventos.IO.Domain.csproj", "{96620D34-BFB5-409A-863D-8A6E92AFA0C6}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96620D34-BFB5-409A-863D-8A6E92AFA0C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96620D34-BFB5-409A-863D-8A6E92AFA0C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96620D34-BFB5-409A-863D-8A6E92AFA0C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96620D34-BFB5-409A-863D-8A6E92AFA0C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0913F50D-9E30-4508-BFBA-4430202965D8} = {5D072FD4-552C-4831-BCF6-EEFA81930FEE}
+		{E5B59DEA-B7F0-439C-8977-C1F712B8D2AB} = {5D072FD4-552C-4831-BCF6-EEFA81930FEE}
+		{96620D34-BFB5-409A-863D-8A6E92AFA0C6} = {FFC70F0F-4F27-42F2-A103-839A4EA24857}
 	EndGlobalSection
 EndGlobal
