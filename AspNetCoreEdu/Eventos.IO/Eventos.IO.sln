@@ -19,7 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 - CrossCutting", "5.2 -
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventos.IO.Domain", "src\Eventos.IO.Domain\Eventos.IO.Domain.csproj", "{96620D34-BFB5-409A-863D-8A6E92AFA0C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventos.IO.Domain.Core", "src\Eventos.IO.Domain.Core\Eventos.IO.Domain.Core.csproj", "{B8A2D193-23C4-47AC-8C6C-4EEC8D5AC87E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventos.IO.Domain.Core", "src\Eventos.IO.Domain.Core\Eventos.IO.Domain.Core.csproj", "{B8A2D193-23C4-47AC-8C6C-4EEC8D5AC87E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventos.IO.Domain.Testing", "src\Eventos.IO.Domain.Testing\Eventos.IO.Domain.Testing.csproj", "{3902652A-A914-43BB-8C4B-8AAD88418C7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{B8A2D193-23C4-47AC-8C6C-4EEC8D5AC87E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8A2D193-23C4-47AC-8C6C-4EEC8D5AC87E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8A2D193-23C4-47AC-8C6C-4EEC8D5AC87E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3902652A-A914-43BB-8C4B-8AAD88418C7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3902652A-A914-43BB-8C4B-8AAD88418C7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3902652A-A914-43BB-8C4B-8AAD88418C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3902652A-A914-43BB-8C4B-8AAD88418C7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +50,6 @@ Global
 		{E5B59DEA-B7F0-439C-8977-C1F712B8D2AB} = {5D072FD4-552C-4831-BCF6-EEFA81930FEE}
 		{96620D34-BFB5-409A-863D-8A6E92AFA0C6} = {FFC70F0F-4F27-42F2-A103-839A4EA24857}
 		{B8A2D193-23C4-47AC-8C6C-4EEC8D5AC87E} = {FFC70F0F-4F27-42F2-A103-839A4EA24857}
+		{3902652A-A914-43BB-8C4B-8AAD88418C7B} = {FFC70F0F-4F27-42F2-A103-839A4EA24857}
 	EndGlobalSection
 EndGlobal
