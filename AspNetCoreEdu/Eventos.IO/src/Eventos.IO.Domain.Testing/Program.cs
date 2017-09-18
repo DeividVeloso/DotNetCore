@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eventos.IO.Domain.Eventos;
+using System;
 
 namespace Eventos.IO.Domain.Testing
 {
@@ -6,7 +7,7 @@ namespace Eventos.IO.Domain.Testing
     {
         static void Main(string[] args)
         {
-            var eventos = new Models.Evento
+            var eventos = new Evento
                 (
                 "",
                 DateTime.Now,
@@ -17,8 +18,9 @@ namespace Eventos.IO.Domain.Testing
                 "Veloso S.A."
                 );
             Console.WriteLine(eventos.ToString());
+            Console.WriteLine(eventos.EhValido());
 
-            if (!eventos.EhValido())
+            if (!eventos.ValidationResult.IsValid)
             {
                 foreach (var erro in eventos.ValidationResult.Errors)
                 {

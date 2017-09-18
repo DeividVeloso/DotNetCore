@@ -1,11 +1,10 @@
 ﻿using Eventos.IO.Domain.Core.Models;
+using Eventos.IO.Domain.Organizadores;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Eventos.IO.Domain.Models
+namespace Eventos.IO.Domain.Eventos
 {
     public class Evento : Entity<Evento>
     {
@@ -54,6 +53,8 @@ namespace Eventos.IO.Domain.Models
             ValidaNome();
             ValidaValor();
             ValidaEndereco();
+            ValidarData();
+            ValidarNomeEmpresa();
             //Chamo o método Validate para validar minha propria classe que está chamando this
             ValidationResult = Validate(this);
         }
@@ -85,6 +86,24 @@ namespace Eventos.IO.Domain.Models
             RuleFor(c => c.Endereco)
                 .Empty().When(x => x.Online)
                 .WithMessage("O endereço deve ser vazio para eventos online");
+        }
+
+        private void ValidarData()
+        {
+            RuleFor(c => c.DataIncio)
+                .GreaterThan(c => c.DataFim)
+                .WithMessage("A data de início deve ser maior que a data do final do evento");
+
+            RuleFor(c => c.DataIncio)
+              .LessThan(DateTime.Now)
+              .WithMessage("A data de início não deve ser menor que a data atual");
+        }
+
+        private void ValidarNomeEmpresa()
+        {
+            RuleFor(c => c.NomeEmpresa)
+                .NotEmpty().WithMessage("O nome do organizador precisa ser preenchido")
+                .Length(2, 150).WithMessage("O nome do organizador precisa ter entre 2 e 150 caracteres");
         }
         #endregion
     }
