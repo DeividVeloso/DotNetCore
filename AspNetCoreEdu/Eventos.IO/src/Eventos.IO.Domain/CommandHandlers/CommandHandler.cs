@@ -1,4 +1,5 @@
 ﻿using Eventos.IO.Domain.Core.Bus;
+using Eventos.IO.Domain.Core.Notifications;
 using Eventos.IO.Domain.Interfaces;
 using FluentValidation.Results;
 using System;
@@ -11,21 +12,21 @@ namespace Eventos.IO.Domain.CommandHandlers
     {
         private readonly IUnitOfWork _uow;
         private readonly IBus _bus;
-        public CommandHandler(IUnitOfWork uow, IBus bus)
+        private readonly IDomainNotificationHandler<DomainNotification> _notifications;
+        private IUnitOfWork uow;
+        private IBus bus;
+
+        public CommandHandler(IUnitOfWork uow, IBus bus, IDomainNotificationHandler<DomainNotification> notifications)
         {
             _uow = uow;
             _bus = bus;
+            _notifications = notifications;
         }
 
-        protected bool Commit()
+        public CommandHandler(IUnitOfWork uow, IBus bus)
         {
-            //TODO: Validar se há alguma validação de negócio com erro!
-            var commandResponse = _uow.Commit();
-            if (commandResponse.Success) return true;
-
-            Console.WriteLine("Ocorreu um erro ao salvar os dados no banco");
-            _bus.RaiseEvent();
-            return false;
+            this.uow = uow;
+            this.bus = bus;
         }
 
         protected void Notificacoes(ValidationResult validationResult)
@@ -33,8 +34,22 @@ namespace Eventos.IO.Domain.CommandHandlers
             foreach (var error in validationResult.Errors)
             {
                 Console.WriteLine(error.ErrorMessage);
-                _bus.RaiseEvent();
+                _bus.RaiseEvent(new DomainNotification(error.PropertyName, error.ErrorMessage));
             }
         }
+
+        protected bool Commit()
+        {
+            //Se tiver alguma notificação, quer dizer que tive algum problema, então retorna antes de validar o commit
+            if (_notifications.HasNotifications()) return false;
+            var commandResponse = _uow.Commit();
+            if (commandResponse.Success) return true;
+
+            Console.WriteLine("Ocorreu um erro ao salvar os dados no banco");
+            _bus.RaiseEvent(new DomainNotification("Commit", "Ocorreu um erro ao salvar os dados no banco"));
+            return false;
+        }
+
+       
     }
 }
