@@ -27,6 +27,12 @@ namespace Eventos.IO.Domain.Eventos
             NomeEmpresa = nomeEmpresa;
         }
 
+        //Usado para constrir minha classe Factory aqui dentro do Evento
+        private Evento()
+        {
+
+        }
+
         public string Nome { get; private set; }
         public string DescricaoCurta { get; private set; }
         public string DescricaoLonga { get; private set; }
@@ -106,5 +112,43 @@ namespace Eventos.IO.Domain.Eventos
                 .Length(2, 150).WithMessage("O nome do organizador precisa ter entre 2 e 150 caracteres");
         }
         #endregion
+
+        public class EventoFactory
+        {
+            public static Evento NovoEventoCompleto(
+            Guid id,
+            string nome,
+            string descricaoCurta,
+            string descricaoLonga,
+            DateTime dataInicio,
+            DateTime dataFim,
+            bool gratuito,
+            decimal valor,
+            bool online,
+            string nomeEmpresa,
+            Guid? organizadorId)
+            {
+                var evento = new Evento()
+                {
+                    Id = id,
+                    DescricaoCurta = descricaoCurta,
+                    DescricaoLonga = descricaoLonga,
+                    Nome = nome,
+                    DataIncio = dataInicio,
+                    DataFim = dataFim,
+                    Gratuito = gratuito,
+                    Valor = valor,
+                    Online = online,
+                    NomeEmpresa = nomeEmpresa
+                };
+
+                if (organizadorId != null)
+                {
+                    evento.Organizador = new Organizador(organizadorId.Value);
+                }
+
+                return evento;
+            }
+        }
     }
 }

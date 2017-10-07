@@ -1,15 +1,17 @@
-﻿using Eventos.IO.Domain.Core.Events;
+﻿using Eventos.IO.Domain.Eventos.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Eventos.IO.Domain.Events
+namespace Eventos.IO.Domain.Eventos.Events
 {
-    public class EventoRegistradoEvent : BaseEventoEvent
+    public class EventoAtualizadoEvent : BaseEventoEvent
     {
-        public EventoRegistradoEvent(
+        public EventoAtualizadoEvent(
            Guid id,
            string nome,
+           string descricaoCurta,
+           string descricaoLonga,
            DateTime dataInicio,
            DateTime dataFim,
            bool gratuito,
@@ -18,6 +20,8 @@ namespace Eventos.IO.Domain.Events
            string nomeEmpresa)
         {
             Id = id;
+            DescricaoCurta = descricaoCurta;
+            DescricaoLonga = descricaoLonga;
             Nome = nome;
             DataIncio = dataInicio;
             DataFim = dataFim;

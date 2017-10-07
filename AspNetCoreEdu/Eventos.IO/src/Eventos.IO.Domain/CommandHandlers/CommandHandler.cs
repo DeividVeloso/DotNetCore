@@ -29,7 +29,7 @@ namespace Eventos.IO.Domain.CommandHandlers
             this.bus = bus;
         }
 
-        protected void Notificacoes(ValidationResult validationResult)
+        protected void NotificarValidacoesErro(ValidationResult validationResult)
         {
             foreach (var error in validationResult.Errors)
             {
