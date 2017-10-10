@@ -21,6 +21,8 @@ namespace Eventos.IO.Domain.Core.Notifications
 
         public void Handle(DomainNotification message)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Erro: { message.Key} - {message.MessageType}");
             _notifications.Add(message);
         }
 
