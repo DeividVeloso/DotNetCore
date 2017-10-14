@@ -42,10 +42,27 @@ namespace Eventos.IO.Domain.Eventos
         public decimal Valor { get; private set; }
         public bool Online { get; private set; }
         public string NomeEmpresa { get; private set; }
-        public Categoria Categoria { get; private set; }
+        public bool Excluido { get; private set; }
         public ICollection<Tags> Tags { get; private set; }
-        public Endereco Endereco { get; private set; }
-        public Organizador Organizador { get; private set; }
+
+        //Usado para Foreign Key com Evento
+        public Guid? CategoriaId { get; private set; }
+        public Guid? EnderecoId { get; private set; }
+        public Guid OrganizadorId { get; private set; }
+
+        //EF propriedades de navegação, são novas tabelas
+        public virtual Categoria Categoria { get; private set; }
+        public virtual Endereco Endereco { get; private set; }
+        public virtual Organizador Organizador { get; private set; }
+
+        //ADHOC Setter
+        public void AtribuirEntereco(Endereco endereco)
+        {
+            if (!endereco.ehValid)
+            {
+
+            }
+        }
 
         public override bool EhValido()
         {
