@@ -18,5 +18,9 @@ namespace Eventos.IO.Domain.Eventos.Commands
         public decimal Valor { get; protected set; }
         public bool Online { get; protected set; }
         public string NomeEmpresa { get; protected set; }
+        public Guid OrganizadorId { get; protected set; }
+        public Endereco Endereco { get; protected set; }
+        public Categoria Categoria { get; protected set; }
+
     }
 }

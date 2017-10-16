@@ -30,14 +30,20 @@ namespace Eventos.IO.Domain.Eventos.Commands
 
         public void Handle(RegistrarEventoCommand message)
         {
-            var evento = new Evento(
-                message.Nome,
-                message.DataIncio,
-                message.DataFim,
-                message.Gratuito,
-                message.Valor,
-                message.Online,
-                message.NomeEmpresa
+            var evento = Evento.EventoFactory.NovoEventoCompleto(
+                  message.Id,
+                  message.DescricaoCurta,
+                  message.DescricaoLonga,
+                  message.Nome,
+                  message.DataIncio,
+                  message.DataFim,
+                  message.Gratuito,
+                  message.Valor,
+                  message.Online,
+                  message.NomeEmpresa,
+                  message.OrganizadorId,
+                  message.Endereco,
+                  message.Categoria.Id
                 );
 
             if (!EventoValido(evento)) return;
@@ -66,8 +72,11 @@ namespace Eventos.IO.Domain.Eventos.Commands
 
         public void Handle(AtualizarEventoCommand message)
         {
+            var eventoAtual = _eventoRepository.GetById(message.Id);
             //Recebe um Id e o nome da classe
             if (!EventoExiste(message.Id, message.MessageType)) return;
+
+            //TODO: validar se o evento pertence a pessoa que está editando
 
             var evento = Evento.EventoFactory.NovoEventoCompleto(
                   message.Id,
@@ -80,7 +89,9 @@ namespace Eventos.IO.Domain.Eventos.Commands
                   message.Valor,
                   message.Online,
                   message.NomeEmpresa,
-                  null
+                  message.OrganizadorId,
+                  eventoAtual.Endereco,
+                  message.Categoria.Id
                 );
 
             if (!EventoValido(evento)) return;

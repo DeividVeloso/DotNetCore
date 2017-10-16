@@ -58,10 +58,20 @@ namespace Eventos.IO.Domain.Eventos
         //ADHOC Setter
         public void AtribuirEntereco(Endereco endereco)
         {
-            if (!endereco.ehValid)
-            {
+            if (!endereco.EhValido()) return;
+            Endereco = endereco;
+        }
 
-            }
+        public void AtribuirCategoria(Categoria categoria)
+        {
+            if (!categoria.EhValido()) return;
+            Categoria = categoria;
+        }
+
+        public void ExcluirEvento()
+        {
+            //TODO: Deve validar alguma regra?
+            Excluido = true;
         }
 
         public override bool EhValido()
@@ -80,6 +90,9 @@ namespace Eventos.IO.Domain.Eventos
             ValidarNomeEmpresa();
             //Chamo o método Validate para validar minha propria classe que está chamando this
             ValidationResult = Validate(this);
+
+            //Validações adicionais
+            ValidarEndereco();
         }
 
         private void ValidaNome()
@@ -128,6 +141,18 @@ namespace Eventos.IO.Domain.Eventos
                 .NotEmpty().WithMessage("O nome do organizador precisa ser preenchido")
                 .Length(2, 150).WithMessage("O nome do organizador precisa ter entre 2 e 150 caracteres");
         }
+
+
+        private void ValidarEndereco()
+        {
+            if (Online) return;
+            if (Endereco.EhValido()) return;
+
+            foreach (var error in Endereco.ValidationResult.Errors)
+            {
+                ValidationResult.Errors.Add(error);
+            }
+        }
         #endregion
 
         public class EventoFactory
@@ -143,7 +168,9 @@ namespace Eventos.IO.Domain.Eventos
             decimal valor,
             bool online,
             string nomeEmpresa,
-            Guid? organizadorId)
+            Guid? organizadorId,
+            Endereco endereco,
+            Guid categoriaId)
             {
                 var evento = new Evento()
                 {
@@ -156,7 +183,9 @@ namespace Eventos.IO.Domain.Eventos
                     Gratuito = gratuito,
                     Valor = valor,
                     Online = online,
-                    NomeEmpresa = nomeEmpresa
+                    NomeEmpresa = nomeEmpresa,
+                    Endereco = endereco,
+                    CategoriaId = categoriaId
                 };
 
                 if (organizadorId != null)
