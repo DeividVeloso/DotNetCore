@@ -67,16 +67,18 @@ namespace Eventos.IO.Domain.Eventos.Commands
             }
 
             //Aqui salvo no meu banco de dados as informações de entrada.
-            _eventoRepository.Add(evento);
+            _eventoRepository.Adicionar(evento);
         }
 
         public void Handle(AtualizarEventoCommand message)
         {
-            var eventoAtual = _eventoRepository.GetById(message.Id);
+            /*
+             Valida se o evento pertence a pessoa que está editando
+             */
+            var eventoAtual = _eventoRepository.ObterPorId(message.Id);
             //Recebe um Id e o nome da classe
             if (!EventoExiste(message.Id, message.MessageType)) return;
 
-            //TODO: validar se o evento pertence a pessoa que está editando
 
             var evento = Evento.EventoFactory.NovoEventoCompleto(
                   message.Id,
@@ -90,13 +92,13 @@ namespace Eventos.IO.Domain.Eventos.Commands
                   message.Online,
                   message.NomeEmpresa,
                   message.OrganizadorId,
-                  eventoAtual.Endereco,
+                  eventoAtual.Endereco, //Usa o endereço que já estava cadastrado.
                   message.Categoria.Id
                 );
 
             if (!EventoValido(evento)) return;
 
-            _eventoRepository.Update(evento);
+            _eventoRepository.Atualizar(evento);
 
             if (Commit())
             {
@@ -119,7 +121,7 @@ namespace Eventos.IO.Domain.Eventos.Commands
         {
             //Recebe um Id e o nome da classe
             if (!EventoExiste(message.Id, message.MessageType)) return;
-            _eventoRepository.Remove(message.Id);
+            _eventoRepository.Remover(message.Id);
 
             if (Commit())
             {
@@ -137,7 +139,7 @@ namespace Eventos.IO.Domain.Eventos.Commands
 
         private bool EventoExiste(Guid id, string messageType)
         {
-            var evento = _eventoRepository.GetById(id);
+            var evento = _eventoRepository.ObterPorId(id);
 
             if (evento != null) return true;
 

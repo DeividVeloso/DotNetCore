@@ -13,10 +13,11 @@ namespace Eventos.IO.Domain.Eventos
         {
 
         }
-        //Fazer relacionamento onde uma Categoria pode ter Variaos Eventos
+        //Fazer relacionamento onde uma Categoria pode ter Varios Eventos
         public ICollection<Evento> Eventos { get; set; }
 
         public string Nome { get; private set; }
+
         public override bool EhValido()
         {
             return true;

@@ -93,6 +93,7 @@ namespace Eventos.IO.Domain.Eventos
 
             //Validações adicionais
             ValidarEndereco();
+            ValidarCategoria();
         }
 
         private void ValidaNome()
@@ -153,6 +154,17 @@ namespace Eventos.IO.Domain.Eventos
                 ValidationResult.Errors.Add(error);
             }
         }
+
+        private void ValidarCategoria()
+        {
+            if (Online) return;
+            if (Categoria.EhValido()) return;
+
+            foreach (var error in Categoria.ValidationResult.Errors)
+            {
+                ValidationResult.Errors.Add(error);
+            }
+        }
         #endregion
 
         public class EventoFactory
@@ -191,6 +203,11 @@ namespace Eventos.IO.Domain.Eventos
                 if (organizadorId != null)
                 {
                     evento.Organizador = new Organizador(organizadorId.Value);
+                }
+
+                if (online)
+                {
+                    evento.Endereco = null;
                 }
 
                 return evento;
