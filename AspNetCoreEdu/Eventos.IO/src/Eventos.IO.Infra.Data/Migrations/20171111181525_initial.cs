@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Eventos.IO.Infra.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,8 +12,8 @@ namespace Eventos.IO.Infra.Data.Migrations
                 name: "Categorias",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
-                    Nome = table.Column<string>(nullable: true)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -24,10 +24,10 @@ namespace Eventos.IO.Infra.Data.Migrations
                 name: "Organizadores",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
-                    CPF = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Nome = table.Column<string>(nullable: true)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CPF = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -38,20 +38,20 @@ namespace Eventos.IO.Infra.Data.Migrations
                 name: "Eventos",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
-                    CategoriaId = table.Column<Guid>(nullable: true),
-                    DataFim = table.Column<DateTime>(nullable: false),
-                    DataIncio = table.Column<DateTime>(nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CategoriaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    DataFim = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DataIncio = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DescricaoCurta = table.Column<string>(type: "varchar(150)", nullable: true),
                     DescricaoLonga = table.Column<string>(type: "varchar(150)", nullable: true),
-                    EnderecoId = table.Column<Guid>(nullable: true),
-                    Excluido = table.Column<bool>(nullable: false),
-                    Gratuito = table.Column<bool>(nullable: false),
+                    EnderecoId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Excluido = table.Column<bool>(type: "bit", nullable: false),
+                    Gratuito = table.Column<bool>(type: "bit", nullable: false),
                     Nome = table.Column<string>(type: "varchar(150)", nullable: false),
                     NomeEmpresa = table.Column<string>(type: "varchar(150)", nullable: false),
-                    Online = table.Column<bool>(nullable: false),
-                    OrganizadorId = table.Column<Guid>(nullable: false),
-                    Valor = table.Column<decimal>(nullable: false)
+                    Online = table.Column<bool>(type: "bit", nullable: false),
+                    OrganizadorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Valor = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,15 +74,15 @@ namespace Eventos.IO.Infra.Data.Migrations
                 name: "Enderecos",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
-                    Bairro = table.Column<string>(nullable: true),
-                    CEP = table.Column<string>(nullable: true),
-                    Cidade = table.Column<string>(nullable: true),
-                    Complemento = table.Column<string>(nullable: true),
-                    Estado = table.Column<string>(nullable: true),
-                    EventoId = table.Column<Guid>(nullable: true),
-                    Logradouro = table.Column<string>(nullable: true),
-                    Numero = table.Column<string>(nullable: true)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Bairro = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CEP = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Cidade = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Complemento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Estado = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EventoId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Logradouro = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Numero = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -99,7 +99,8 @@ namespace Eventos.IO.Infra.Data.Migrations
                 name: "IX_Enderecos_EventoId",
                 table: "Enderecos",
                 column: "EventoId",
-                unique: true);
+                unique: true,
+                filter: "[EventoId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Eventos_CategoriaId",

@@ -1,6 +1,6 @@
 {
   "projects": [ "src", "tests" ], //Informo onde meus projetos estão
   "sdk": {
-    "version": "1.0.4"//rodar no cmd o dotnet --version e pegar a versão
+    "version": "2.0.2"//rodar no cmd o dotnet --version e pegar a versão
   }
 }
