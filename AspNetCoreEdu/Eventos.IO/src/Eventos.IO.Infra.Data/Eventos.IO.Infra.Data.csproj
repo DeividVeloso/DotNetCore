@@ -25,4 +25,10 @@
     <ProjectReference Include="..\Eventos.IO.Domain\Eventos.IO.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
