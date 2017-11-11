@@ -1,6 +1,8 @@
 ﻿using Eventos.IO.Domain.Eventos;
 using Eventos.IO.Domain.Organizadores;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace Eventos.IO.Infra.Data.Context
 {
@@ -40,12 +42,12 @@ namespace Eventos.IO.Infra.Data.Context
             modelBuilder.Entity<Evento>()
                 .Ignore(e => e.ValidationResult);
 
-            modelBuilder.Entity<Evento>()
-                .Ignore(e => e.Tags);
-
             //Pertence ao fluentvalidation
             modelBuilder.Entity<Evento>()
                 .Ignore(e => e.CascadeMode);
+
+            modelBuilder.Entity<Evento>()
+             .Ignore(e => e.Tags);
 
             //Mapear os relacionamentos
             modelBuilder.Entity<Evento>()
@@ -61,9 +63,59 @@ namespace Eventos.IO.Infra.Data.Context
 
             #endregion
 
+            #region Endereço
+            modelBuilder.Entity<Endereco>()
+                .HasOne(c => c.Evento) //Um Endereço só tem um Evento
+                .WithOne(c => c.Endereco) //Um Evento só tem um Endereço
+                .HasForeignKey<Endereco>(c => c.EventoId)
+                .IsRequired(false);
+
+            modelBuilder.Entity<Endereco>()
+             .Ignore(e => e.ValidationResult);
+
+            //Pertence ao fluentvalidation
+            modelBuilder.Entity<Endereco>()
+                .Ignore(e => e.CascadeMode);
+
+            modelBuilder.Entity<Endereco>().ToTable("Enderecos");
+            #endregion
+
+            #region Organizador
+
+            modelBuilder.Entity<Organizador>()
+             .Ignore(e => e.ValidationResult);
+
+            //Pertence ao fluentvalidation
+            modelBuilder.Entity<Organizador>()
+                .Ignore(e => e.CascadeMode);
+
+            modelBuilder.Entity<Organizador>().ToTable("Organizadores");
+            #endregion
+
+            #region Categoria
+            modelBuilder.Entity<Categoria>()
+           .Ignore(e => e.ValidationResult);
+
+            //Pertence ao fluentvalidation
+            modelBuilder.Entity<Categoria>()
+                .Ignore(e => e.CascadeMode);
+
+            modelBuilder.Entity<Categoria>().ToTable("Categorias");
+            #endregion
+
             #endregion
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var config = new ConfigurationBuilder() //Monta uma configuração
+                .SetBasePath(Directory.GetCurrentDirectory()) //é a raiz no meu projeto
+                .AddJsonFile("appsettings.json") //Onde vai estar minha connection string
+                .Build();
+            //Usa o SQL SERVER e pega a minha connection string
+            optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
         }
     }
 

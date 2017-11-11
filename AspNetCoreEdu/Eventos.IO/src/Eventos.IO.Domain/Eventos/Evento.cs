@@ -202,7 +202,7 @@ namespace Eventos.IO.Domain.Eventos
 
                 if (organizadorId != null)
                 {
-                    evento.Organizador = new Organizador(organizadorId.Value);
+                    //evento.Organizador = new Organizador(organizadorId.Value);
                 }
 
                 if (online)
