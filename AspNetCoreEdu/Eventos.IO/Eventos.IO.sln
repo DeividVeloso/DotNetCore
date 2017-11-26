@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventos.IO.Domain.Testing",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventos.IO.Infra.Data", "src\Eventos.IO.Infra.Data\Eventos.IO.Infra.Data.csproj", "{9320C241-92FA-481B-8BCC-7B0713B72BED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventos.IO.Site", "src\Eventos.IO.Site\Eventos.IO.Site.csproj", "{31C3EB5A-8293-4DA1-BE5C-2F9BE2F7C108}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventos.IO.Site", "src\Eventos.IO.Site\Eventos.IO.Site.csproj", "{31C3EB5A-8293-4DA1-BE5C-2F9BE2F7C108}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventos.IO.Application", "src\Eventos.IO.Application\Eventos.IO.Application.csproj", "{464FFC0C-A978-46C4-8731-9DFCDBCFE6C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{31C3EB5A-8293-4DA1-BE5C-2F9BE2F7C108}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31C3EB5A-8293-4DA1-BE5C-2F9BE2F7C108}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31C3EB5A-8293-4DA1-BE5C-2F9BE2F7C108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{464FFC0C-A978-46C4-8731-9DFCDBCFE6C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{464FFC0C-A978-46C4-8731-9DFCDBCFE6C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{464FFC0C-A978-46C4-8731-9DFCDBCFE6C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{464FFC0C-A978-46C4-8731-9DFCDBCFE6C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{3902652A-A914-43BB-8C4B-8AAD88418C7B} = {FFC70F0F-4F27-42F2-A103-839A4EA24857}
 		{9320C241-92FA-481B-8BCC-7B0713B72BED} = {0913F50D-9E30-4508-BFBA-4430202965D8}
 		{31C3EB5A-8293-4DA1-BE5C-2F9BE2F7C108} = {D5624B54-DB44-4971-85CB-926446C4B51B}
+		{464FFC0C-A978-46C4-8731-9DFCDBCFE6C6} = {EFA0491B-9750-4125-819B-6C5A10A62449}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79BCEDB3-5DCE-4C9F-80BA-34A4732B70E4}
