@@ -7,9 +7,25 @@ namespace Eventos.IO.Domain.Eventos.Commands
 {
     public class IncluirEnderecoCommand : Command
     {
-        public IncluirEnderecoCommand()
+        public IncluirEnderecoCommand(Guid id,
+            string logradouro,
+            string numero,
+            string complemento,
+            string bairro,
+            string cep,
+            string cidade,
+            string estado,
+            Guid? eventoId)
         {
-
+            Id = id;
+            Logradouro = logradouro;
+            Numero = numero;
+            Complemento = complemento;
+            Bairro = bairro;
+            CEP = cep;
+            Cidade = cidade;
+            Estado = estado;
+            EventoId = eventoId;
         }
 
         public Guid Id { get; private set; }
