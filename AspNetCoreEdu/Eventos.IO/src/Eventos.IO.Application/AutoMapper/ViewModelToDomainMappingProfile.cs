@@ -44,8 +44,9 @@ namespace Eventos.IO.Application.AutoMapper
             CreateMap<EventoViewModel, ExcluirEventoCommand>()
                 .ConstructUsing(c => new ExcluirEventoCommand(c.Id));
 
-            //CreateMap<EnderecoViewModel, AtualizarEnderecoEventoCommand>()
-            //  .ConstructUsing(c => new AtualizarEnderecoEventoCommand(Guid.NewGuid(), c.Logradouro, c.Numero, c.Complemento, c.Bairro, c.CEP, c.Cidade, c.Estado, c.EventoId));
+            CreateMap<EnderecoViewModel, IncluirEnderecoCommand>()
+              .ConstructUsing(c => new IncluirEnderecoCommand(Guid.NewGuid(), c.Logradouro, c.Numero, c.Complemento, c.Bairro, c.CEP, c.Cidade, c.Estado, c.EventoId));
+            
             //// Organizador
             //CreateMap<OrganizadorViewModel, RegistrarOrganizadorCommand>()
             //    .ConstructUsing(c => new RegistrarOrganizadorCommand(c.Id, c.Nome, c.CPF, c.Email));
