@@ -9,10 +9,11 @@ namespace PaymentContext.Tests
         [TestMethod]
         public void AddSubscription()
         {
+            var subscription = new Subscription();
             //O que precisamos para ter um Aluno?
             var student = new Student("Deivid", "Veloso", "38749957805", "veloso.deivid@gmail.com");
             // student.Subscriptions.Add(student); Não vai conseguir adcionar assim
-            student.AddSubscriptions(student);
+            student.AddSubscriptions();
         }
     }
 }
