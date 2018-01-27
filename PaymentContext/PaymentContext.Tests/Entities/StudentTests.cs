@@ -11,9 +11,9 @@ namespace PaymentContext.Tests
         {
             var subscription = new Subscription(null);
             //O que precisamos para ter um Aluno?
-            var student = new Student("Deivid", "Veloso", "38749957805", "veloso.deivid@gmail.com");
+            //var student = new Student("Deivid", "Veloso", "38749957805", "veloso.deivid@gmail.com");
             // student.Subscriptions.Add(student); Não vai conseguir adcionar assim
-            student.AddSubscriptions(subscription);
+            //student.AddSubscriptions(subscription);
         }
     }
 }
