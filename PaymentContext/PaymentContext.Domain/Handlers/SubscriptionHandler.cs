@@ -19,6 +19,7 @@ namespace PaymentContext.Domain.Handlers
     {
         private readonly IStudentRepository _repository;
         private readonly IEmailService _emailService;
+
         public SubscriptionHandler(IStudentRepository repository, IEmailService emailService)
         {
             _repository = repository;
@@ -101,12 +102,6 @@ namespace PaymentContext.Domain.Handlers
         public ICommandResult Handle(CreatePayPalSubscriptionCommand command)
         {
          //Fail Fast Validation
-            command.Validate();
-            if (command.Invalid)
-            {
-                AddNotifications(command);
-                return new CommandResult(false, "Não foi possível realizar seu assinatura");
-            }
 
             //Verificar se Documento já está cadastrado
             if (_repository.DocumentExists(command.Document))
